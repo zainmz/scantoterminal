@@ -124,7 +124,7 @@ class App(customtkinter.CTk):
 
         self.manual = customtkinter.CTkButton(master=self, height=40, fg_color="#ADD8E6", hover_color="gray",
                                               text_font=("Arial", 15), text="Manual",
-                                              command=manual)
+                                              command=self.destroy)
 
         self.manual.grid(row=4, column=3, sticky=E, pady=5, padx=20)
 
@@ -256,6 +256,7 @@ def run(username, password, fork, terminal, status, keepGoing):
         logout(browser)
 
     except Exception as e:
+        print(e)
         status.configure(text=e)
 
 
