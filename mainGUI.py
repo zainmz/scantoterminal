@@ -7,7 +7,6 @@ import http.client as httplib
 from valueToTerminal import *
 
 
-
 def manual():
     sys.exit()
 
@@ -197,7 +196,6 @@ def run(username, password, fork, terminal, status, keepGoing):
             status.configure(text="No Internet")
             return
 
-
         url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
         excel_file_loc = r'C:\Users\96598\Documents\Desktop\Auto Print Lables-BODYLINE.xlsm'
 
@@ -236,6 +234,7 @@ def run(username, password, fork, terminal, status, keepGoing):
         status.configure(text="Docking In..")
         dockIN(browser, status, wb)
         status.configure(text="Dock In Complete!.")
+        is_stop_pressed(browser, status, keepGoing)
         goHome(browser)
 
         is_stop_pressed(browser, status, keepGoing)
@@ -243,12 +242,13 @@ def run(username, password, fork, terminal, status, keepGoing):
         status.configure(text="Receiving in Progress!")
         ASNReceipt(browser, wb, status)
         status.configure(text="Receiving Complete!")
+        is_stop_pressed(browser, status, keepGoing)
         goHome(browser)
 
         is_stop_pressed(browser, status, keepGoing)
         # Go to Dock Out
         status.configure(text="Docking Out..")
-        # dockOut(browser, gate_pass, status)
+        dockOut(browser, getGatePassID(wb), status)
         status.configure(text="Dock out Complete!")
 
         # Logout of Virtual Terminal

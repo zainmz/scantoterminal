@@ -22,9 +22,9 @@ from getFromExcel import *
 SELENIUM_SESSION_FILE = './selenium_session'
 SELENIUM_PORT = 9515
 
-#username = 'LPCHAMIKA'
-#password = '09876'
-#equipment_zone = 'LPCHAMIKA'
+# username = 'LPCHAMIKA'
+# password = '09876'
+# equipment_zone = 'LPCHAMIKA'
 
 page_source = ''
 
@@ -174,7 +174,6 @@ def logon(browser, username, password, fork, terminal, status):
         check = browser.find_elements(By.XPATH, "//*[text()='USER ID             ']")
         print(check)
         if len(check) > 0:
-
             browser.find_element(By.NAME, "inputdata").send_keys(username)
             submit(browser)
 
@@ -188,7 +187,7 @@ def logon(browser, username, password, fork, terminal, status):
         while len(browser.find_elements(By.XPATH, "//*[text()='INVALID USER ID     ']")) != 0:
             status.configure(text='Invalid Username!')
             logout(browser)
-            return True
+            return
 
         else:
             print("Log on failed.")
@@ -336,6 +335,7 @@ def ASNReceipt(browser, wb, status):
 
             while len(browser.find_elements(By.XPATH, "//*[text()='Advantage Workflow Engine is down.']")) != 0:
                 print('reloading page')
+                status.configure(text='Timed Out!')
                 browser.refresh()
 
             F4(browser)
