@@ -6,9 +6,17 @@ import http.client as httplib
 
 from valueToTerminal import *
 
+url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
+excel_file_loc = r'C:\Users\96598\Documents\Desktop\Auto Print Lables-BODYLINE.xlsm'
+
 
 def manual():
     sys.exit()
+
+
+def complete():
+    wb = xw.Book(excel_file_loc)
+    setComplete(wb)
 
 
 class App(customtkinter.CTk):
@@ -128,6 +136,12 @@ class App(customtkinter.CTk):
 
         self.manual.grid(row=4, column=3, sticky=E, pady=5, padx=20)
 
+        self.complete = customtkinter.CTkButton(master=self, height=40, fg_color="#FCF55F", hover_color="gray",
+                                                text_font=("Arial", 15), text="Complete",
+                                                command=complete)
+
+        self.complete.grid(row=5, column=3, sticky=E, pady=5, padx=20)
+
         # Credits settings
         self.creator = customtkinter.CTkLabel(self, text="Developed by Zain Zameer")
         self.creator.configure(font=("Courier", 10))
@@ -195,9 +209,6 @@ def run(username, password, fork, terminal, status, keepGoing):
         if not checkInternetHttplib("www.google.com", 3):
             status.configure(text="No Internet")
             return
-
-        url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
-        excel_file_loc = r'C:\Users\96598\Documents\Desktop\Auto Print Lables-BODYLINE.xlsm'
 
         #
         # Get the open macro file instance

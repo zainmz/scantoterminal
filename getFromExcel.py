@@ -54,3 +54,11 @@ def getDoorLocation(wb):
     value = sheet.range("H6").value
 
     return str(value).replace('.0', '')
+
+
+def setComplete(wb):
+    # get the door location
+    sheet = wb.sheets['SCAN_PAGE']
+
+    # set complete value to the cell
+    sheet.range("I6").value = "Complete"
