@@ -93,8 +93,8 @@ def is_stop_pressed(browser, status):
 def run(gate_pass, status):
     try:
         print('thread started')
-        url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
-        excel_file_loc = r'C:\Users\lka-logisticspark\Desktop\Body Line\Auto Print Lables-BODYLINE.xlsm'
+        url = ""
+        excel_file_loc = r''
 
         # start the text to voice engine
         engine = pyttsx3.init()
