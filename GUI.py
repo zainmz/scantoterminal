@@ -92,8 +92,8 @@ def is_stop_pressed(browser, status):
 def run(gate_pass, status):
     try:
         print('thread started')
-        url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
-        excel_file_loc = r'C:\Users\96598\Documents\Desktop\Auto Print Lables-BODYLINE.xlsm'
+        url = ""
+        excel_file_loc = r''
 
         #
         # Get the open macro file instance
