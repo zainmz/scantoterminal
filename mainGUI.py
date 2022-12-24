@@ -6,8 +6,8 @@ import http.client as httplib
 
 from valueToTerminal import *
 
-url = "http://hjprod.itx360.com/webtrmgw/webtrmgw.dll?MfcISAPICommand=ProcessTerminalForm&terminal_name=WTLP01&server_name=PROD-HJ-APPS-BK&echo_type=Y&inputdata=F1"
-excel_file_loc = r'C:\Users\96598\Documents\Desktop\Auto Print Lables-BODYLINE.xlsm'
+url = ""
+excel_file_loc = r''
 
 
 def manual():
