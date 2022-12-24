@@ -22,9 +22,9 @@ from getFromExcel import *
 SELENIUM_SESSION_FILE = './selenium_session'
 SELENIUM_PORT = 9515
 
-# username = 'LPCHAMIKA'
-# password = '09876'
-# equipment_zone = 'LPCHAMIKA'
+# username = ''
+# password = ''
+# equipment_zone = ''
 
 page_source = ''
 
